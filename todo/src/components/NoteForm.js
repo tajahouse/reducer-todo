@@ -3,11 +3,17 @@ import { initialNoteState, noteReducer} from "../reducers/reducer";
 import Notes from '../components/Notes';
 
 const NoteForm = () =>{
-    const [newNoteText, setNewNoteText] = useState(initialNoteState.text);
+    const [noteState, dispatch] = useReducer(noteReducer, initialNoteState);
+    const [newNoteState, setNewNoteState] = useState("");
+    console.log(initialNoteState);
     const handleChanges = e =>{
-        setNewNoteText(e.target.value)
+        setNewNoteState(e.target.value)
     }
 
+    const handleSubmit = e =>{
+        e.preventDefault();
+        dispatch({ type: "ADD_TODO", note: newNoteState })
+    }
 
     return (
         <div>
@@ -15,13 +21,12 @@ const NoteForm = () =>{
             type="text"
             name="entry"
             placeholder="Enter Note Here"
-            value={newNoteText}
+            value={newNoteState}
             onChange={handleChanges}
             />
-            <button>Add Note</button>
+            <button onClick={handleSubmit} type="submit">Add Note</button>
 
-            <Notes />
-
+            {initialNoteState.map(note => <Notes note={note} />)}
         </div>
     )
 }

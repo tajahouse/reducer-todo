@@ -1,15 +1,11 @@
 import React, { useReducer } from 'react'
 import { initialNoteState, noteReducer} from "../reducers/reducer";
 
-const Notes = () =>{
-    const [noteState, dispatch] = useReducer(noteReducer, initialNoteState);
-
+const Notes = (props) => {
+    console.log(props);
     return (
-
-
         <div>
-            <h1>{initialNoteState.item}</h1>
-            <p>{initialNoteState.text}</p>
+            <p>{props.note.item}</p>
         </div>
     )
 }
