@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+.note_wrapper{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 70%;
+  margin: 0 auto;
+}
+.note{
+  background-color: #a044e6;
+  width: 45%;
+  text-align: center;
+  margin: 4px 0;
+  padding-left: 2px;
+  cursor: pointer;
+}
+.note.completed{
+  background-color: #e7e482;
+  text-decoration: line-through;
+}
