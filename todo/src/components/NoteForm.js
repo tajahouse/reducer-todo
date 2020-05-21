@@ -26,7 +26,7 @@ const NoteForm = () =>{
             />
             <button onClick={handleSubmit} type="submit">Add Note</button>
 
-            {initialNoteState.map(note => <Notes note={note} />)}
+            {noteState.map(note => <Notes note={note} />)}
         </div>
     )
 }
